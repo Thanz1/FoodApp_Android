@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAdminFormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THÊM MÓN ĂN MỚI"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Ảnh xem trước của món ăn -->
+        <ImageView
+            android:id="@+id/imgPreviewFood"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/edtFoodName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên món ăn"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtFoodPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá tiền"
+            android:inputType="number"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtFoodCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Danh mục (FastFood, Mon nuoc, Drink...)"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Ô nhập Link hình ảnh -->
+        <EditText
+            android:id="@+id/edtFoodImageUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Link hình ảnh (URL .jpg, .png)"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtFoodDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mô tả món ăn"
+            android:minLines="3"
+            android:gravity="top"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Mục cấu hình Topping (đã đưa lên trên nút Lưu) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topping ăn kèm:"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <EditText
+                android:id="@+id/edtToppingName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Tên topping (VD: Thêm bò)"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:layout_marginEnd="6dp" />
+
+            <EditText
+                android:id="@+id/edtToppingPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:hint="Giá (VD: 10000)"
+                android:inputType="number"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:layout_marginEnd="6dp" />
+
+            <Button
+                android:id="@+id/btnAddSingleTopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ Thêm"
+                android:backgroundTint="#2196F3"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Danh sách topping vừa add tạm -->
+        <LinearLayout
+            android:id="@+id/layoutToppingContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="8dp" />
+
+        <!-- Nút lưu và Quay lại đặt ở cuối cùng -->
+        <Button
+            android:id="@+id/btnSaveFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lưu Món Vào Database"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnBackFromAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quay Lại"
+            android:backgroundTint="#757575"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

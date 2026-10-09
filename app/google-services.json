@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "65263005355",
+    "project_id": "vutruongthanh-gk",
+    "storage_bucket": "vutruongthanh-gk.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65263005355:android:9b30f14b941d84143291ee",
+        "android_client_info": {
+          "package_name": "com.example.a2324802010348_vutruongthanh_gk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKR-uvlRpKifeA94UwgUJUaJB39ADEKzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

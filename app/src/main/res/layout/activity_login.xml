@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <!-- Tiêu đề App Food -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="APP FOOD"
+        android:textColor="#FF9800"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- Ô nhập Email -->
+    <EditText
+        android:id="@+id/edtEmailLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="#EEEEEE"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp" />
+
+    <!-- Ô nhập Mật khẩu -->
+    <EditText
+        android:id="@+id/edtPasswordLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="#EEEEEE"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:padding="12dp" />
+
+    <!-- Checkbox Remember canh lề trái, thẳng hàng với khung nhập liệu -->
+    <CheckBox
+        android:id="@+id/cbRememberMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Remember"
+        android:textColor="#757575"
+        android:textSize="16sp" />
+
+    <!-- Nút Đăng nhập -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#FF9800"
+        android:text="Đăng nhập"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Chuyển sang màn hình Đăng ký -->
+    <TextView
+        android:id="@+id/tvGoToRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Chưa có tài khoản? Đăng ký ngay"
+        android:textColor="#757575"
+        android:textSize="16sp" />
+
+    <!-- Quên mật khẩu -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quên mật khẩu?"
+        android:textColor="#FF9800"
+        android:textSize="16sp" />
+
+</LinearLayout>

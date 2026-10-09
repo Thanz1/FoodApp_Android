@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="14dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/tvAdminOrderUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Khách: user@gmail.com"
+        android:textSize="13sp"
+        android:textColor="#757575" />
+
+    <TextView
+        android:id="@+id/tvAdminOrderFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Burger Bò Phô Mai"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_marginTop="2dp" />
+
+    <TextView
+        android:id="@+id/tvAdminOrderToppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Thêm bò, phô mai"
+        android:textSize="13sp"
+        android:textColor="#009688"
+        android:layout_marginTop="2dp" />
+
+    <TextView
+        android:id="@+id/tvAdminOrderTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng: 65,000 đ"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#D32F2F"
+        android:layout_marginTop="4dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvAdminOrderStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Trạng thái: Đang xác nhận"
+            android:textStyle="bold"
+            android:textColor="#FF9800" />
+
+        <Button
+            android:id="@+id/btnNextStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="Next ➔"
+            android:backgroundTint="#2196F3"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</LinearLayout>

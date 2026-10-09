@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TÌNH TRẠNG ĐƠN HÀNG"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvOrderFoodInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Món: Burger Bò Phô Mai"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvOrderToppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Topping: None"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvOrderTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng tiền: 50,000 đ"
+        android:textSize="18sp"
+        android:textColor="#E53935"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        android:layout_marginVertical="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trạng thái hiện tại:"
+        android:textSize="15sp"
+        android:textColor="#777777" />
+
+    <TextView
+        android:id="@+id/tvCurrentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đang xác nhận yêu cầu"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FF9800"
+        android:layout_marginTop="8dp"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btnBackHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Về màn hình chính"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="32dp" />
+</LinearLayout>

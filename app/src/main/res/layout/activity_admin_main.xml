@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="QUẢN TRỊ VIÊN"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F" />
+
+        <Button
+            android:id="@+id/btnAdminLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng xuất"
+            android:backgroundTint="#FF5722"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvAdminHello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xin chào Admin!"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnGoToAddFood"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="➕ Thêm món ăn mới vào Menu"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnManageOrders"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="📦 Tiếp nhận và Quản lý đơn hàng"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#2196F3"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnViewAsCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="👁️ Xem giao diện khách hàng (Menu món)"
+        android:backgroundTint="#607D8B"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

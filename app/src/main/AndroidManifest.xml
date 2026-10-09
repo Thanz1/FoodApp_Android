@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme._2324802010348_VuTruongThanhGK">
+        <activity android:name=".AdminMainActivity" android:exported="false" />
+        <activity android:name=".AdminManageFoodActivity" android:exported="false" />
+        <activity android:name=".AdminAddFoodActivity" android:exported="false" />
+        <activity android:name=".OrderStatusActivity" android:exported="false" />
+        <activity android:name=".AdminOrdersActivity" android:exported="false" />
+        <!-- Màn hình Đăng nhập là màn hình khởi chạy đầu tiên khi mở app -->
+        <activity
+
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UserProfileActivity" android:exported="false" />
+        <!-- Khai báo màn hình Đăng ký -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Khai báo màn hình chính sau khi đăng nhập thành công -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Khai báo màn hình Chi tiết món ăn -->
+        <activity
+            android:name=".FoodDetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Khai báo màn hình Giỏ hàng -->
+        <activity
+            android:name=".CartActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+
+</manifest>
