@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,14 +16,22 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnLogout, btnProfile, btnCart;
-    private RecyclerView recyclerViewFood;
+    private RecyclerView recyclerViewFood, rcvCategories;
     private FoodAdapter foodAdapter;
-    private List<FoodItem> foodItemList;
+    private CategoryAdapter categoryAdapter;
+
+    private List<FoodItem> foodItemList = new ArrayList<>();
+    private List<FoodItem> allFoodItemList = new ArrayList<>();
+    private List<String> categoryList = new ArrayList<>();
+    private String currentCategory = "Tất cả";
+
     private FirebaseFirestore db;
     private ListenerRegistration firestoreListener;
 
@@ -36,16 +45,20 @@ public class MainActivity extends AppCompatActivity {
         btnProfile = findViewById(R.id.btnProfile);
         btnCart = findViewById(R.id.btnCart);
         recyclerViewFood = findViewById(R.id.recyclerViewFood);
+        rcvCategories = findViewById(R.id.rcvCategories);
 
-        // Khởi tạo Firestore
         db = FirebaseFirestore.getInstance();
 
-        // Cấu hình RecyclerView hiển thị dạng lưới 2 cột
+        // Cấu hình RecyclerView danh mục cuộn ngang
+        rcvCategories.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        categoryAdapter = new CategoryAdapter(categoryList, category -> {
+            currentCategory = category;
+            filterFoodsByCategory(category);
+        });
+        rcvCategories.setAdapter(categoryAdapter);
+
+        // Cấu hình RecyclerView món ăn dạng lưới 2 cột
         recyclerViewFood.setLayoutManager(new GridLayoutManager(this, 2));
-
-        foodItemList = new ArrayList<>();
-
-        // Khởi tạo Adapter kèm sự kiện click xem chi tiết món
         foodAdapter = new FoodAdapter(this, foodItemList, foodItem -> {
             Intent intent = new Intent(MainActivity.this, FoodDetailActivity.class);
             intent.putExtra("foodItem", foodItem);
@@ -53,19 +66,10 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerViewFood.setAdapter(foodAdapter);
 
-        // Điều hướng sang màn hình Hồ sơ cá nhân
-        btnProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
-            startActivity(intent);
-        });
+        // Điều hướng
+        btnProfile.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, UserProfileActivity.class)));
+        btnCart.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
 
-        // Điều hướng sang Giỏ hàng
-        btnCart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, CartActivity.class);
-            startActivity(intent);
-        });
-
-        // Xử lý Đăng xuất
         btnLogout.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -77,7 +81,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        // Lắng nghe dữ liệu thời gian thực từ Firestore collection "Foods"
+        listenToFirestoreFoods();
+    }
+
+    private void listenToFirestoreFoods() {
         firestoreListener = db.collection("Foods")
                 .addSnapshotListener((value, error) -> {
                     if (error != null) {
@@ -86,20 +93,44 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if (value != null) {
-                        foodItemList.clear();
+                        allFoodItemList.clear();
+                        Set<String> uniqueCategories = new LinkedHashSet<>();
+                        uniqueCategories.add("Tất cả");
+
                         for (QueryDocumentSnapshot doc : value) {
                             FoodItem item = doc.toObject(FoodItem.class);
-                            foodItemList.add(item);
+                            allFoodItemList.add(item);
+                            if (item.getCategory() != null && !item.getCategory().trim().isEmpty()) {
+                                uniqueCategories.add(item.getCategory().trim());
+                            }
                         }
-                        foodAdapter.notifyDataSetChanged();
+
+                        categoryList.clear();
+                        categoryList.addAll(uniqueCategories);
+                        categoryAdapter.notifyDataSetChanged();
+
+                        filterFoodsByCategory(currentCategory);
                     }
                 });
+    }
+
+    private void filterFoodsByCategory(String category) {
+        foodItemList.clear();
+        if ("Tất cả".equals(category)) {
+            foodItemList.addAll(allFoodItemList);
+        } else {
+            for (FoodItem item : allFoodItemList) {
+                if (category.equalsIgnoreCase(item.getCategory())) {
+                    foodItemList.add(item);
+                }
+            }
+        }
+        foodAdapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        // Hủy lắng nghe khi màn hình đóng để tránh hao pin / rò rỉ bộ nhớ
         if (firestoreListener != null) {
             firestoreListener.remove();
         }

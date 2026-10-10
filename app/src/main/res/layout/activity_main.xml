@@ -18,7 +18,7 @@
         android:textColor="#212121"
         android:layout_marginBottom="12dp" />
 
-    <!-- Header: Tầng 2 - Thanh công cụ chứa các nút bấm phân bổ đều -->
+    <!-- Header: Tầng 2 - Thanh công cụ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             android:padding="0dp" />
     </LinearLayout>
 
-    <!-- Nút dành riêng cho ADMIN (Mặc định ẩn, chỉ Admin mới thấy) -->
+    <!-- Nút dành riêng cho ADMIN -->
     <Button
         android:id="@+id/btnAdminPanel"
         android:layout_width="match_parent"
@@ -71,6 +71,14 @@
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:visibility="gone"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Thanh cuộn chọn danh mục món -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginBottom="12dp" />
 
     <!-- Tiêu đề danh sách món -->
